@@ -3,11 +3,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 import config from 'config';
 
-import './styles.scss';
+import styles from './styles.scss';
 
 const AppView: React.FC = () => (
   <BrowserRouter basename="/">
-    <div style={{ textAlign: 'center' }}>
+    <div className={styles.app}>
       Welcome to React.JS Application
       <br />
       {config.copyright}

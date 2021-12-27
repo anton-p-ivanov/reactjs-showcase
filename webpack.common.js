@@ -43,7 +43,13 @@ module.exports = {
         include: /src/,
         use: [
           'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+            },
+          },
           'sass-loader',
         ],
       },
