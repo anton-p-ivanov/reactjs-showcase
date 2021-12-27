@@ -24,7 +24,6 @@
     "paths": {
       "views/*": ["views/*"],
       "components/*": ["components/*"],
-      "@forms/*": ["modules/forms/*"],
     }
   },
   "include": [
