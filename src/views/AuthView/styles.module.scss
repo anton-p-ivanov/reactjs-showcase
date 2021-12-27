@@ -15,3 +15,42 @@
   font-size: $font-size-sm;
   margin-top: 1rem;
 }
+
+.form {
+  width: 380px;
+  padding: 2rem;
+  background-color: $color-white;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  box-sizing: content-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  text-align: center;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: solid 1px $color-gray-light;
+
+  img {
+    animation: rotate 5s infinite;
+  }
+}
+
+.title {
+  font-size: $font-size-lg;
+}
+
+.author {
+  font-size: .875rem;
+  color: $color-gray-medium;
+}
+
+@keyframes rotate {
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+}
