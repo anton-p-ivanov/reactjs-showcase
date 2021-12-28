@@ -1,7 +1,7 @@
 {
   "name": "reactjs-showcase-app",
   "version": "0.1.0",
-  "description": "React.JS Showcase Application",
+  "description": "React.JS Showcase App",
   "homepage": "https://anton-p-ivanov.github.io/reactjs-showcase/",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --mode development",
