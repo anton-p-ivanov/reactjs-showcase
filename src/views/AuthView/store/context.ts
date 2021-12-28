@@ -8,4 +8,5 @@ export default React.createContext<TReducerContext>({
   state: defaults.state,
   update: () => null,
   reset: () => null,
+  submit: () => new Promise(() => {}),
 });

@@ -24,8 +24,13 @@ export type TReducerAction = {
 
 export type TReducerContext = {
   state: TReducerState,
-  update: (payload: TReducerState) => void,
   reset: () => void,
+  update: (payload: TReducerState) => void,
+  submit: (data: TReducerData) => Promise<TAuthResponse>,
 };
 
 export type TReducer = Reducer<TReducerState, TReducerAction>;
+
+export type TAuthResponse = {
+  token: string;
+};

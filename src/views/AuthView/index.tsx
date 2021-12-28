@@ -4,12 +4,14 @@ import { Button, Form } from 'components';
 import config from 'config';
 
 import useFields from './hooks/useFields';
+import useHandlers from './hooks/useHandlers';
 import withStore, { useStore } from './store';
 import styles from './styles.module.scss';
 
 const AuthView: React.FC = () => {
   const { state } = useStore();
   const fields = useFields();
+  const handlers = useHandlers();
 
   return (
     <div className={styles.view}>
@@ -25,7 +27,7 @@ const AuthView: React.FC = () => {
             </div>
           </div>
         </div>
-        <Form>
+        <Form onSubmit={handlers.submit}>
           {Object.entries(fields).map(([key, field]) => (
             <Form.Field field={field} variant="horizontal" key={key} />
           ))}
