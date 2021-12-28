@@ -1,0 +1,18 @@
+@import "src/assets/styles/variables";
+
+.default {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: solid 1px $color-gray-lightest;
+
+  * + * {
+    margin-left: 1rem;
+  }
+}
+
+.centered {
+  @extend .default;
+  justify-content: center;
+}
