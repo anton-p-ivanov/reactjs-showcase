@@ -1,0 +1,16 @@
+@import "src/assets/styles/variables";
+
+.default {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.horizontal {
+  @extend .default;
+  flex-direction: row;
+}
+
+.invalid {
+  /**/
+}

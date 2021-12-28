@@ -85,16 +85,21 @@ $border-radius: 2px;
 $button-border-width: 1px;
 
 /**
+ * Forms
+ */
+$horizontal-label-width: 30%;
+
+/**
  * Inputs
  */
 $input-border-width: 1px;
 $input-border-color: $color-gray-light;
 $input-padding-x: .625rem;
 $input-padding-y: .75rem;
+
 /**
  * Tables
  */
-
 $cell-padding-x: 1rem;
 $cell-padding-y: .5rem;
 

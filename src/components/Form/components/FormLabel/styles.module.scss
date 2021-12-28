@@ -1,0 +1,26 @@
+@import "src/assets/styles/variables";
+
+.default {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.horizontal {
+  flex: 0 0 $horizontal-label-width;
+  text-align: right;
+  padding-right: 2rem;
+  margin-top: .5rem;
+}
+
+.required {
+  position: relative;
+
+  &::after {
+    margin-left: 5px;
+    position: absolute;
+    content: '*';
+    font-family: monospace;
+    color: $color-danger;
+    top: 2px;
+  }
+}
