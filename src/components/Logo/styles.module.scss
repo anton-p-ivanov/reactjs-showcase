@@ -1,0 +1,33 @@
+@import "src/assets/styles/variables";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  flex: 0 0 30%;
+  text-align: center;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: solid 1px $color-gray-light;
+
+  img {
+    animation: rotate 5s infinite;
+  }
+}
+
+.title {
+  font-size: $font-size-lg;
+}
+
+.author {
+  font-size: .875rem;
+  color: $color-gray-medium;
+}
+
+@keyframes rotate {
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+}
