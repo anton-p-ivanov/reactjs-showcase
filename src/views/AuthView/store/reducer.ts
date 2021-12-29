@@ -14,13 +14,13 @@ const Reducer: TReducer = (state, action) => {
       return { ...state, ...payload };
 
     case actions.AUTH_REQUEST_SENT:
-      return { ...state, status: 'AUTH_REQUEST_SENT', ...payload };
+      return { ...state, status: 'AUTH_REQUEST_SENT' };
 
     case actions.AUTH_REQUEST_SUCCEED:
-      return { ...state, status: 'AUTH_REQUEST_SUCCEED', ...payload };
+      return { ...state, status: 'AUTH_REQUEST_SUCCEED' };
 
     case actions.AUTH_REQUEST_FAILED:
-      return { ...state, status: 'AUTH_REQUEST_FAILED', ...payload };
+      return { ...state, status: 'AUTH_REQUEST_FAILED' };
 
     default:
       return state;

@@ -1,5 +1,7 @@
 import { Reducer } from 'react';
 
+import type { TAuthToken } from 'config/types';
+
 export type TReducerData = {
   [key: string]: string;
   username: string;
@@ -15,6 +17,7 @@ export type TReducerStatus =
 export type TReducerState = {
   status: TReducerStatus;
   data: TReducerData;
+  token: TAuthToken;
 };
 
 export type TReducerAction = {
@@ -26,7 +29,7 @@ export type TReducerContext = {
   state: TReducerState,
   reset: () => void,
   update: (payload: TReducerState) => void,
-  submit: (data: TReducerData) => Promise<TAuthResponse>,
+  submit: (data: TReducerData) => Promise<TAuthToken>,
 };
 
 export type TReducer = Reducer<TReducerState, TReducerAction>;

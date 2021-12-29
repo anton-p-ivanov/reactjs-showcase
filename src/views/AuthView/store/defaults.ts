@@ -5,6 +5,7 @@ const state: TReducerState = {
     username: '',
     password: '',
   },
+  token: null,
   status: 'WAITING',
 };
 

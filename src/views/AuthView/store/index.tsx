@@ -1,21 +1,26 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext, useMemo, useReducer } from 'react';
 
-import API from '../../../lib/api';
+import API from 'lib/api';
+
 import actions from './actions';
 import Context from './context';
 import defaults from './defaults';
 import reducer from './reducer';
 
-import type {
-  TAuthResponse, TReducerContext, TReducerData, TReducerState,
-} from './types';
+import type * as Types from './types';
+import type { AxiosRequestConfig } from 'axios';
+import type { TAuthToken } from 'config/types';
 
+/**
+ * AuthView component store provider.
+ * @param Component
+ */
 function withStore<T>(Component: React.ComponentType<T>): React.FC<T> {
   const AuthViewStore: React.FC<T> = (props) => {
     const [state, dispatch] = useReducer(reducer, defaults.state);
 
-    const update = (payload: TReducerState) => {
+    const update = (payload: Types.TReducerState) => {
       dispatch({ type: actions.AUTH_STATE_UPDATE, payload });
     };
 
@@ -23,19 +28,21 @@ function withStore<T>(Component: React.ComponentType<T>): React.FC<T> {
       dispatch({ type: actions.AUTH_STATE_RESET });
     };
 
-    const submit = (data: TReducerData): Promise<TAuthResponse> => new Promise((resolve) => {
+    const submit = async (data: Types.TReducerData): Promise<TAuthToken> => {
       dispatch({ type: actions.AUTH_REQUEST_SENT });
 
-      API
-        .request<TAuthResponse>({ method: 'POST', url: '/auth', data })
-        .then((response) => {
-          dispatch({ type: actions.AUTH_REQUEST_SUCCEED });
-          resolve(response.data);
-        })
-        .catch(() => {
-          dispatch({ type: actions.AUTH_REQUEST_FAILED });
-        });
-    });
+      try {
+        const config: AxiosRequestConfig = { method: 'POST', url: '/auth', data };
+        const response = await API.request<Types.TAuthResponse>(config);
+        dispatch({ type: actions.AUTH_REQUEST_SUCCEED });
+
+        return response.data.token;
+      } catch (e) {
+        dispatch({ type: actions.AUTH_REQUEST_FAILED });
+
+        return null;
+      }
+    };
 
     const store = useMemo(() => ({
       state, update, reset, submit,
@@ -53,6 +60,6 @@ function withStore<T>(Component: React.ComponentType<T>): React.FC<T> {
   return AuthViewStore;
 }
 
-export const useStore = (): TReducerContext => useContext<TReducerContext>(Context);
+export const useStore = (): Types.TReducerContext => useContext<Types.TReducerContext>(Context);
 
 export default withStore;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Form } from 'components';
+import { Alert, Button, Form } from 'components';
 import config from 'config';
 
 import useFields from './hooks/useFields';
@@ -27,6 +27,7 @@ const AuthView: React.FC = () => {
             </div>
           </div>
         </div>
+        {state.status === 'AUTH_REQUEST_FAILED' && <Alert variant="danger">No user with provided credentials found</Alert>}
         <Form onSubmit={handlers.submit}>
           {Object.entries(fields).map(([key, field]) => (
             <Form.Field field={field} variant="horizontal" key={key} />

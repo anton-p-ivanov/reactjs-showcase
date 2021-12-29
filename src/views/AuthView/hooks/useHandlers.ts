@@ -16,7 +16,9 @@ const useHandlers: TUseHandlers = () => {
     submit: (event) => {
       event.preventDefault();
 
-      submit(state.data).then((response) => setToken(response.token), undefined);
+      submit(state.data)
+        .then((token) => setToken(token))
+        .catch(() => setToken(null));
     },
   });
 };
