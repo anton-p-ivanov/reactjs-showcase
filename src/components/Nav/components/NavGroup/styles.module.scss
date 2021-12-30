@@ -1,0 +1,32 @@
+@import "src/assets/styles/variables";
+
+.group {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.toggle {
+  display: flex;
+  justify-content: space-between;
+
+  .feather {
+    transition: $transition-speed $transition-function;
+
+    &--expanded {
+      transform: rotate(1.5turn);
+    }
+
+    &--collapsed {
+      transform: rotate(0turn);
+    }
+  }
+}
+
+.nav {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  margin: 0 0 0 1.5rem;
+  transition: height $transition-speed $transition-function;
+}

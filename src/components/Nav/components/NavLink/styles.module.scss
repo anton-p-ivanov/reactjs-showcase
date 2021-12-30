@@ -1,0 +1,36 @@
+@import "src/assets/styles/variables";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: $transition-speed $transition-function;
+
+  .active,
+  &:focus,
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.icon {
+  display: flex;
+  color: $color-gray-medium;
+  margin-right: .5rem;
+}
+
+.title,
+.link {
+  flex: 1 0 auto;
+  color: inherit;
+}
+
+.link {
+  &, &:hover, &:focus, &:active {
+    text-decoration: none;
+  }
+
+  .active {
+    color: $color-primary;
+  }
+}
