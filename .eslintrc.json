@@ -75,6 +75,13 @@
           "node_modules",
           "src"
         ]
+      },
+      "alias": {
+        "extensions": [".ts", ".tsx"],
+        "map": [
+          ["@core", "./src/modules/core"],
+          ["@content", "./src/modules/content"]
+        ]
       }
     }
   }

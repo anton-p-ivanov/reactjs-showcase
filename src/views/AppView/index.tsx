@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import AuthView from 'views/AuthView';
+import MainView from 'views/MainView';
 
 import Context from './context';
 import useToken from './hooks/useToken';
@@ -15,7 +16,7 @@ const AppView: React.FC = () => {
   return (
     <BrowserRouter>
       <Context.Provider value={store}>
-        {token ? <>MainView</> : <AuthView setToken={setToken} />}
+        {token ? <MainView /> : <AuthView />}
       </Context.Provider>
     </BrowserRouter>
   );

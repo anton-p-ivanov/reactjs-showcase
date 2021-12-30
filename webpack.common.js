@@ -16,7 +16,8 @@ module.exports = {
     modules: [__dirname, 'src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
     alias: {
-      '@forms': path.resolve(__dirname, 'src/modules/forms'),
+      '@core': path.resolve(__dirname, 'src/modules/core'),
+      '@content': path.resolve(__dirname, 'src/modules/content'),
     }
   },
   module: {

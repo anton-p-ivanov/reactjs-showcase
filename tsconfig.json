@@ -24,6 +24,8 @@
     "paths": {
       "views/*": ["views/*"],
       "components/*": ["components/*"],
+      "@core/*": ["modules/core/*"],
+      "@content/*": ["modules/content/*"],
     }
   },
   "include": [
