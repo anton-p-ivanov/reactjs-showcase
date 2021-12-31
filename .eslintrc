@@ -24,7 +24,6 @@
       "jsx": true
     }
   },
-  "plugins": [],
   "rules": {
     "react/prop-types": "off",
     "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
@@ -84,5 +83,14 @@
         ]
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/**/*.test.ts(?x)"],
+      "env": {
+        "jest": true,
+        "node": true
+      }
+    }
+  ]
 }
