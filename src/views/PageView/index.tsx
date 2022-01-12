@@ -13,9 +13,7 @@ const PageView: React.FC<TPageViewProps> = (props) => {
         {title}
       </div>
       <div className={styles.body}>
-        <div className={styles.content}>
-          {children}
-        </div>
+        {children}
       </div>
     </div>
   );

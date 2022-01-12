@@ -1,5 +1,9 @@
 @import "src/assets/styles/variables";
 
 .default {
-  height: 100%;
+  padding: 2rem;
+  margin-right: 2rem;
+  border-radius: $border-radius;
+  background-color: $color-white;
+  box-shadow: $shadow;
 }

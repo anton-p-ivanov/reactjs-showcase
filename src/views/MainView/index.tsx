@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContentPane, SidebarPane } from './components';
+import { ContentPane, HeaderPane, SidebarPane } from './components';
 import styles from './styles.module.scss';
 
 const MainView: React.FC = () => (
@@ -9,6 +9,7 @@ const MainView: React.FC = () => (
       <SidebarPane />
     </div>
     <div className={styles.content}>
+      <HeaderPane />
       <ContentPane />
     </div>
   </div>
