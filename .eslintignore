@@ -1,2 +1,4 @@
 public/*
+.babelrc
+jest.config.json
 webpack.*
