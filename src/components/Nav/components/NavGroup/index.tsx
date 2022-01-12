@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { v4 } from 'uuid';
 
 import { Icon } from 'components';
+import animate from 'lib/animate';
 
 import NavItem from '../NavItem';
 import styles from './styles.module.scss';
@@ -15,19 +16,24 @@ const NavGroup: React.FC<TNavGroupProps> = ({ item }) => {
   const [height, setHeight] = useState<number>(0);
   const { pathname } = useLocation();
 
-  const getHeight = () => (
+  const getMaxHeight = () => (
     ref.current ? (ref.current.clientHeight * (item.items || []).length) : 0
   );
 
   const toggleGroup = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
-    setHeight(height ? 0 : getHeight());
+    const isCollapsed = height === 0;
+
+    animate({
+      timing: isCollapsed ? 'easeIn' : 'easeOut',
+      draw: (progress: number) => setHeight(getMaxHeight() * progress),
+    });
   };
 
   useEffect(() => {
     const items = item.items || [];
-    const collapsed = typeof (items.find((i) => i.route && pathname.startsWith(i.route))) === 'undefined';
-    setHeight(collapsed ? 0 : getHeight());
+    const isCollapsed = typeof (items.find((i) => i.route && pathname.startsWith(i.route))) === 'undefined';
+    setHeight(isCollapsed ? 0 : getMaxHeight());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
