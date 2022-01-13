@@ -5,6 +5,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'public/build'),
+    publicPath: '/',
     clean: true,
   },
   plugins: [new HtmlWebpackPlugin({
