@@ -5,7 +5,6 @@ import type { TRoute } from 'config/types';
 const routes: TRoute[] = [
   {
     path: '/',
-    title: 'Dashboard',
     component: DashboardPage,
   },
 ];

@@ -4,7 +4,6 @@ export type TAuthToken = string | null;
 
 export type TRoute = {
   path: string;
-  title: string;
   component: React.FC;
 };
 
