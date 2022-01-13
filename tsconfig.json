@@ -26,6 +26,7 @@
       "components/*": ["components/*"],
       "@core/*": ["modules/core/*"],
       "@content/*": ["modules/content/*"],
+      "@news/*": ["modules/news/*"],
     }
   },
   "include": [

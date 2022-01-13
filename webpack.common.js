@@ -18,6 +18,7 @@ module.exports = {
     alias: {
       '@core': path.resolve(__dirname, 'src/modules/core'),
       '@content': path.resolve(__dirname, 'src/modules/content'),
+      '@news': path.resolve(__dirname, 'src/modules/news'),
     }
   },
   module: {

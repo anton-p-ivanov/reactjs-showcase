@@ -79,7 +79,8 @@
         "extensions": [".ts", ".tsx"],
         "map": [
           ["@core", "./src/modules/core"],
-          ["@content", "./src/modules/content"]
+          ["@content", "./src/modules/content"],
+          ["@news", "./src/modules/news"]
         ]
       }
     }
