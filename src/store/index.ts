@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import listViewReducer from 'views/ListView/store/slice';
+
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    listView: listViewReducer,
+  },
 });
 
 export type TAppState = ReturnType<typeof store.getState>;
