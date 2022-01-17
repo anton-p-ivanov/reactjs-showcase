@@ -1,0 +1,44 @@
+@use "sass:math";
+@import "src/components/DataTable/styles";
+
+.title,
+.publishedAt,
+.locale,
+.isPublished,
+.updatedAt,
+.context {
+  @extend .cell;
+}
+
+.isPublished,
+.locale {
+  text-align: center;
+}
+
+:global {
+  .data-column {
+    &-updatedAt {
+      width: math.div(170px, 16px) + $cell-padding-x * 2;
+    }
+
+    &-publishedAt {
+      width: math.div(130px, 16px) + $cell-padding-x * 2;
+    }
+
+    &-context {
+      width: 25px;
+    }
+
+    &-isPublished,
+    &-locale {
+      width: math.div(70px, 16px) + $cell-padding-x * 2;
+    }
+  }
+
+  .data-header {
+    &-isPublished,
+    &-locale {
+      text-align: center;
+    }
+  }
+}
