@@ -1,6 +1,7 @@
 import Alert from './Alert';
 import Button from './Button';
 import DataFormat from './DataFormat';
+import DataTable from './DataTable';
 import Form from './Form';
 import Icon from './Icon';
 import Logo from './Logo';
@@ -10,6 +11,7 @@ export {
   Alert,
   Button,
   DataFormat,
+  DataTable,
   Form,
   Icon,
   Logo,

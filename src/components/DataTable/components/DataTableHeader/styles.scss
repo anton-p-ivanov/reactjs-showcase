@@ -1,0 +1,8 @@
+@import "src/assets/styles/variables";
+@import "../../styles";
+
+.default {
+  @include data-table-cell;
+  border-bottom: solid 1px $color-gray-light;
+  font-weight: $font-weight-bold;
+}
