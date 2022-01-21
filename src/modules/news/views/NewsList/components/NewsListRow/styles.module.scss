@@ -15,6 +15,15 @@
   text-align: center;
 }
 
+.context {
+  position: relative;
+  color: #343a40;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  overflow: visible;
+}
+
 :global {
   .data-column {
     &-updatedAt {

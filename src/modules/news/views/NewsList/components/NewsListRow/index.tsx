@@ -3,7 +3,7 @@ import React from 'react';
 import { DataFormat, Icon } from 'components';
 
 import NewsListContext from '../NewsListContext';
-import styles from './styles.scss';
+import styles from './styles.module.scss';
 
 import type { TNewsListRowProps } from './types';
 
