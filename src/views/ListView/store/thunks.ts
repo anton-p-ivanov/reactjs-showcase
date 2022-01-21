@@ -2,13 +2,34 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import API from 'lib/api';
 
-import type { TListViewData } from 'views/ListView/store/types';
+import type { TListViewSort } from '../components/ListViewSort/types';
+import type { TListViewData } from './types';
+
+interface IFetchDataParams {
+  endpoint: string,
+  page: number,
+  size: number,
+  sort?: TListViewSort,
+}
 
 const fetchData = createAsyncThunk(
   'listView/fetchData',
-  async (url: string) => {
+  async (config: IFetchDataParams) => {
+    const params: Record<string, string> = {
+      page: config.page.toString(),
+      size: config.size.toString(),
+    };
+
+    if (config.sort) {
+      params.sort = (config.sort.sortOrder === 'DESC' ? '-' : '') + config.sort.sortBy;
+    }
+
     try {
-      const response = await API.request<TListViewData[]>({ method: 'GET', url });
+      const response = await API.request<TListViewData[]>({
+        method: 'GET',
+        url: config.endpoint,
+        params,
+      });
 
       return {
         data: response.data || [],

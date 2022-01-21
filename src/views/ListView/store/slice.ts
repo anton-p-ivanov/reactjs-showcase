@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import defaults from './defaults';
 import thunks from './thunks';
@@ -8,6 +8,9 @@ export const listViewSlice = createSlice({
   initialState: defaults.initialState,
   reducers: {
     reset: (state) => ({ ...state, ...defaults.initialState }),
+    navigateToPage: (state, action: PayloadAction<number>) => (
+      { ...state, pagination: { ...state.pagination, page: action.payload } }
+    ),
   },
   extraReducers: (builder) => {
     builder.addCase(thunks.fetchData.pending, (state) => ({ ...state, status: 'FETCH_PENDING' }));
@@ -16,8 +19,6 @@ export const listViewSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { reset } = listViewSlice.actions;
 export const { fetchData } = thunks;
 
 export default listViewSlice.reducer;

@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { v4 } from 'uuid';
 
-import DataTable from 'components/DataTable';
+import { DataTable } from 'components/index';
 
+import { ListViewPagination } from './components';
 import { fetchData } from './store/slice';
+import styles from './styles.module.scss';
 
 import type { TListViewProps, TListViewRow } from './types';
 import type { TAppState, TAppDispatch } from 'store';
@@ -18,12 +20,24 @@ const ListView: React.FC<TListViewProps> = (props) => {
 
   const { pagination } = state;
 
-  useEffect(() => { dispatch<void>(fetchData(endpoint)); }, [dispatch, endpoint]);
+  const params = {
+    endpoint,
+    page: pagination.page,
+    size: pagination.size,
+    sort: state.sort,
+  };
+
+  const deps = JSON.stringify(params);
+
+  useEffect(() => {
+    dispatch<void>(fetchData(params));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, deps]);
 
   const Row: React.FC<TListViewRow> = templates.row;
 
   return (
-    <div>
+    <div className={styles.table}>
       <DataTable columns={columns}>
         {state.status === 'FETCH_PENDING' && <DataTable.Loading span={columns.length} rows={pagination.size} /> }
         {state.status === 'FETCH_FAILED' && <DataTable.Error span={columns.length} />}
@@ -37,6 +51,7 @@ const ListView: React.FC<TListViewProps> = (props) => {
           </>
         )}
       </DataTable>
+      <ListViewPagination />
     </div>
   );
 };
