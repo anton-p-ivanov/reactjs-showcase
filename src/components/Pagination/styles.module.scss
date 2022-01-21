@@ -1,0 +1,17 @@
+@import "src/assets/styles/variables";
+
+.wrapper {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+
+  div ~ div {
+    margin-left: .25rem;
+  }
+}
+
+.text {
+  margin: 0 1rem;
+  flex: 1 0 auto;
+  text-align: right;
+}

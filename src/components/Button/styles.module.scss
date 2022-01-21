@@ -12,7 +12,7 @@ $button-colors: (
 
 $button-size-map: (
   default: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
-  small: (padding: .5rem, line-height: 1rem, height: 2rem),
+  small: (padding: .5rem, line-height: 1rem, height: 2rem, min-width: auto),
   large: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
 );
 

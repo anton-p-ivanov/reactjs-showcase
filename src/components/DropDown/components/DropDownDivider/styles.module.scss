@@ -1,0 +1,13 @@
+@import "src/assets/styles/variables";
+
+@import "../../styles.module";
+
+.default {
+  @extend .item;
+
+  margin: .5rem 1rem;
+  width: auto;
+  padding: 0;
+  height: 1px;
+  background-color: $color-gray-lightest;
+}
