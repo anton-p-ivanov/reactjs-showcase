@@ -34,7 +34,7 @@ const Pagination: React.FC<TPaginationProps> = (props) => {
         </Button>
       </div>
       <div className={styles.text}>
-        {`Показаны ${paginator.firstIndex} — ${paginator.lastIndex} из ${resultsTotal} элементов`}
+        {`Shows ${paginator.firstIndex} — ${paginator.lastIndex} of ${resultsTotal} elements`}
       </div>
     </div>
   );
