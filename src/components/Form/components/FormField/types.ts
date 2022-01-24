@@ -11,7 +11,7 @@ export type TFormFieldType =
   // | 'file'
   // | 'number'
   | 'password'
-  // | 'select'
+  | 'select'
   // | 'slug'
   | 'text';
 

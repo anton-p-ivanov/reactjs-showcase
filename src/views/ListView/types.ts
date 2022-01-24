@@ -1,12 +1,11 @@
 import React from 'react';
 
+import type { TListViewSort } from './components/ListViewSort/types';
 import type { TListViewData } from './store/types';
 import type { TDataColumn } from 'components/DataTable/types';
 
 export type TListViewProps = {
-  endpoint: string;
-  columns: TListViewColumn[];
-  templates: TListViewTemplates;
+  settings: IListViewSettings;
 };
 
 export type TListViewColumn = TDataColumn;
@@ -18,3 +17,10 @@ export type TListViewTemplates = {
 export type TListViewRow = {
   data: TListViewData;
 };
+
+export interface IListViewSettings {
+  endpoint: string;
+  sort: TListViewSort;
+  templates: TListViewTemplates;
+  columns: TListViewColumn[];
+}

@@ -1,0 +1,17 @@
+@import "src/assets/styles/variables";
+
+.wrapper {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+
+  * {
+    margin-bottom: 0;
+  }
+
+  * ~ * {
+    margin-left: .25rem;
+  }
+}

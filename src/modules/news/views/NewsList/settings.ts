@@ -1,3 +1,5 @@
+import { IListViewSettings } from 'views/ListView/types';
+
 import { NewsListRow, NewsListToolbar } from './components';
 
 import type { TListViewColumn, TListViewTemplates } from 'views/ListView/types';
@@ -16,7 +18,14 @@ const templates: TListViewTemplates = {
   toolbar: NewsListToolbar,
 };
 
-export default {
+const settings: IListViewSettings = {
+  endpoint: '/content/news',
+  sort: {
+    sortBy: 'updatedAt',
+    sortOrder: 'DESC',
+  },
   columns,
   templates,
 };
+
+export default settings;

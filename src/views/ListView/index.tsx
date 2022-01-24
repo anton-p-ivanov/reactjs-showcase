@@ -5,15 +5,17 @@ import { v4 } from 'uuid';
 
 import { DataTable } from 'components/index';
 
-import { ListViewPagination } from './components';
+import { ListViewPagination, ListViewSort } from './components';
 import { fetchData } from './store/slice';
 import styles from './styles.module.scss';
 
 import type { TListViewProps } from './types';
 import type { TAppState, TAppDispatch } from 'store';
 
-const ListView: React.FC<TListViewProps> = (props) => {
-  const { columns, endpoint, templates } = props;
+const ListView: React.FC<TListViewProps> = ({ settings }) => {
+  const {
+    columns, endpoint, templates, sort,
+  } = settings;
 
   const state = useSelector((root: TAppState) => root.listView);
   const dispatch = useDispatch<TAppDispatch>();
@@ -30,9 +32,13 @@ const ListView: React.FC<TListViewProps> = (props) => {
   const deps = JSON.stringify(params);
 
   useEffect(() => {
-    dispatch<void>(fetchData(params));
+    if (typeof state.sort !== 'undefined') {
+      dispatch<void>(fetchData(params));
+    } else {
+      dispatch({ type: 'listView/applySorting', payload: sort });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, deps, state.timestamp]);
+  }, [dispatch, deps, state.timestamp, sort]);
 
   const Toolbar = templates.toolbar;
   const Row = templates.row;
@@ -41,7 +47,9 @@ const ListView: React.FC<TListViewProps> = (props) => {
     <div className={styles.table}>
       {Toolbar && (
         <div className={styles.toolbar}>
-          <Toolbar />
+          <Toolbar>
+            <ListViewSort columns={columns} />
+          </Toolbar>
         </div>
       )}
       <DataTable columns={columns}>
