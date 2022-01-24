@@ -8,6 +8,7 @@ export const listViewSlice = createSlice({
   initialState: defaults.initialState,
   reducers: {
     reset: (state) => ({ ...state, ...defaults.initialState }),
+    refresh: (state) => ({ ...state, timestamp: (new Date()).getTime() }),
     navigateToPage: (state, action: PayloadAction<number>) => (
       { ...state, pagination: { ...state.pagination, page: action.payload } }
     ),

@@ -1,4 +1,4 @@
-import { NewsListRow } from './components';
+import { NewsListRow, NewsListToolbar } from './components';
 
 import type { TListViewColumn, TListViewTemplates } from 'views/ListView/types';
 
@@ -13,6 +13,7 @@ const columns: TListViewColumn[] = [
 
 const templates: TListViewTemplates = {
   row: NewsListRow,
+  toolbar: NewsListToolbar,
 };
 
 export default {

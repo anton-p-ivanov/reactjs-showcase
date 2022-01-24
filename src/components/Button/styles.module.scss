@@ -12,7 +12,7 @@ $button-colors: (
 
 $button-size-map: (
   default: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
-  small: (padding: .5rem, line-height: 1rem, height: 2rem, min-width: auto),
+  small: (padding: .5rem, line-height: 1rem, height: 2rem),
   large: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
 );
 
@@ -31,7 +31,6 @@ $button-size-map: (
   border-radius: $border-radius;
   transition: all $transition-speed $transition-function;
   text-decoration: none;
-  min-width: 100px;
 }
 
 @each $status, $color-map in $button-colors {

@@ -9,7 +9,7 @@ import { ListViewPagination } from './components';
 import { fetchData } from './store/slice';
 import styles from './styles.module.scss';
 
-import type { TListViewProps, TListViewRow } from './types';
+import type { TListViewProps } from './types';
 import type { TAppState, TAppDispatch } from 'store';
 
 const ListView: React.FC<TListViewProps> = (props) => {
@@ -32,12 +32,18 @@ const ListView: React.FC<TListViewProps> = (props) => {
   useEffect(() => {
     dispatch<void>(fetchData(params));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, deps]);
+  }, [dispatch, deps, state.timestamp]);
 
-  const Row: React.FC<TListViewRow> = templates.row;
+  const Toolbar = templates.toolbar;
+  const Row = templates.row;
 
   return (
     <div className={styles.table}>
+      {Toolbar && (
+        <div className={styles.toolbar}>
+          <Toolbar />
+        </div>
+      )}
       <DataTable columns={columns}>
         {state.status === 'FETCH_PENDING' && <DataTable.Loading span={columns.length} rows={pagination.size} /> }
         {state.status === 'FETCH_FAILED' && <DataTable.Error span={columns.length} />}
