@@ -4,6 +4,7 @@
   display: flex;
   justify-content: stretch;
   align-items: center;
+  margin: 0 1rem;
 
   div ~ div {
     margin-left: .25rem;
@@ -11,7 +12,6 @@
 }
 
 .text {
-  margin: 0 1rem;
   flex: 1 0 auto;
   text-align: right;
 }
