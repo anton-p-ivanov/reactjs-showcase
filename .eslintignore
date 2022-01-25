@@ -2,3 +2,4 @@ public/*
 .babelrc
 jest.config.json
 webpack.*
+__tests__
