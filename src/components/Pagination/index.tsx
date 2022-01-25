@@ -21,6 +21,10 @@ const Pagination: React.FC<TPaginationProps> = (props) => {
     pagesTotal: Math.ceil(resultsTotal / resultsPerPage),
   };
 
+  if (page < 1 || page > paginator.pagesTotal) {
+    throw Error(`Page value should be between 1 and ${paginator.pagesTotal}`);
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.previous}>
