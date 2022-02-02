@@ -18,7 +18,7 @@ const Pagination: React.FC<TPaginationProps> = (props) => {
   const paginator = {
     firstIndex: resultsPerPage * (page - 1) + 1,
     lastIndex: resultsTotal < (resultsPerPage * page) ? resultsTotal : (resultsPerPage * page),
-    pagesTotal: Math.ceil(resultsTotal / resultsPerPage),
+    pagesTotal: Math.ceil(resultsTotal / resultsPerPage) || 1,
   };
 
   if (page < 1 || page > paginator.pagesTotal) {

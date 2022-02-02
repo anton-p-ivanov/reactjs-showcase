@@ -33,7 +33,7 @@ const ListView: React.FC<TListViewProps> = ({ settings }) => {
 
   useEffect(() => {
     if (typeof state.sort !== 'undefined') {
-      dispatch<void>(fetchData(params));
+      dispatch<void>(fetchData({ ...params, sort }));
     } else {
       dispatch({ type: 'listView/applySorting', payload: sort });
     }
@@ -57,15 +57,19 @@ const ListView: React.FC<TListViewProps> = ({ settings }) => {
         {state.status === 'FETCH_FAILED' && <DataTable.Error span={columns.length} />}
         {state.status === 'FETCH_SUCCEED' && (
           <>
-            {state.data.length === 0 && <DataTable.Empty span={columns.length} />}
             {state.data.map((item) => (
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               <DataTable.Row key={v4()} template={<Row data={item} />} />
             ))}
           </>
         )}
+        {state.data.length === 0 && (
+          <DataTable.Empty span={columns.length}>
+            No news found. It is a time to add a new one.
+          </DataTable.Empty>
+        )}
       </DataTable>
-      <ListViewPagination />
+      {state.data.length > 0 && <ListViewPagination />}
     </div>
   );
 };
